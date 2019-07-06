@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "690424244397",
+    "firebase_url": "https://chat-9b859.firebaseio.com",
+    "project_id": "chat-9b859",
+    "storage_bucket": "chat-9b859.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690424244397:android:5b8c02327ef8480d",
+        "android_client_info": {
+          "package_name": "com.blackhole.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690424244397-rtaovr80tc5q6jh1k4do5pjquod66kkt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCId3bXit5z1iCf92L-KzY1mpHLc34LQC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690424244397-rtaovr80tc5q6jh1k4do5pjquod66kkt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

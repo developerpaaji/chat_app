@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+    <CLASSES>
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-3.0.3" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.6.0+10" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/speech_recognition-0.3.0+1" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.3+1" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.4.0+6" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_login-1.2.0" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/device_info-0.4.0+2" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-3.0.2" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.11.1+7" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.1.0" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-3.1.0" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/camera-0.5.2+1" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.6+1" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.12.6" />
+      <root url="file://E:/flutter/.pub-cache/git/flutter_native_image-426996b810c8ff3899a6109b65bdab143652e875" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/onesignal-1.1.0" />
+      <root url="file://E:/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.0.3" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
