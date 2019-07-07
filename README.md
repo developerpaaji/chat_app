@@ -1,5 +1,6 @@
 # chat_app
 A flutter chat app built with Firestore and Firebase Cloud. It is clone of messenger.User can create stories,chat and search in real time.
+
 I am Bhavneet Singh a freelancer who is always excited to work on new projects. If you have interesting work for me then contact me at singhbhavneetdeveloper@gmail.com.
 
 ## Screenshots
