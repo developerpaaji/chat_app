@@ -85,7 +85,8 @@ class _SplashScreenState extends State<SplashScreen> {
         final token = result.accessToken.token;
         final AuthCredential credential=FacebookAuthProvider.getCredential(accessToken: token);
         print("Success");
-        final FirebaseUser user = await FirebaseAuth.instance.signInWithCredential(credential);
+        final AuthResult authResult = await FirebaseAuth.instance.signInWithCredential(credential);
+        FirebaseUser user=authResult.user;
         print("User $user");
         setState(() {
           isLoggedIn=true;
