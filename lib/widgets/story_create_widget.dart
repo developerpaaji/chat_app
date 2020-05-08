@@ -148,11 +148,9 @@ class _StoryCreateWidgetState extends State<StoryCreateWidget> {
       final String dirPath = '${directory.path}/Pictures';
       final String filePath = '$dirPath/${timestamp()}.png';
       print(filePath);
-      File file=File(filePath);
+      File file = File(filePath);
       await file.writeAsBytes(pngBytes);
-      final Uint8List result = await ImageCompressor.compressImage(
-          file);
-      await StoriesController.storeImage(result);
+      await StoriesController.storeImage(file.readAsBytesSync());
       return true;
     } catch (e) {
       print("False");

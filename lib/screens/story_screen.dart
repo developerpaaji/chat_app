@@ -28,35 +28,35 @@ class _StoryScreenState extends State<StoryScreen>
 
     controller =
         AnimationController(vsync: this, duration: Duration(seconds: 3));
-    buildStoryLines();
     controller.forward(from: 0.0);
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        if (current == widget.story.images.length - 1) {
+        if (current == widget.story.data.length - 1) {
           widget.onCompleted();
           return;
         }
-        if (current < widget.story.images.length - 1) {
+        if (current < widget.story.data.length - 1) {
           current++;
-          if(isLoaded)
-          controller.forward(from: 0.0);
-
+          if (isLoaded) controller.forward(from: 0.0);
         }
         buildStoryLines();
       }
+    });
+    WidgetsBinding.instance.addPostFrameCallback((duration) {
+      buildStoryLines();
     });
   }
 
   void buildStoryLines() {
     storyLines.clear();
-    for (int i = 0; i < widget.story.images.length; i++) {
+    for (int i = 0; i < widget.story.data.length; i++) {
       storyLines.add(StorylineWidget(
         controller: current == i ? controller : null,
         completed: i < current,
       ));
     }
     setState(() {});
-    if (current == widget.story.images.length - 1) {
+    if (current == widget.story.data.length - 1) {
       StoriesController.updateStory(widget.story, true);
     }
   }
@@ -80,15 +80,14 @@ class _StoryScreenState extends State<StoryScreen>
           children: <Widget>[
             StoryImageWidget(
               onLoaded: (val) {
-                this.isLoaded=val;
-                if(val){
+                this.isLoaded = val;
+                if (val) {
                   controller.forward(from: 0.0);
-                }
-                else{
-                  controller.value=0.0;
+                } else {
+                  controller.value = 0.0;
                 }
               },
-              image: widget.story.images[current],
+              image: widget.story.data[current].link,
             ),
             Row(
               children: <Widget>[

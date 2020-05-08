@@ -11,10 +11,10 @@ Chat _$ChatFromJson(Map<String, dynamic> json) {
       json['content'],
       json['from'] == null
           ? null
-          : User.fromJson(Map<String, dynamic>.from(json['from'])),
+          : User.fromJson(json['from'] as Map<String, dynamic>),
       json['to'] == null
           ? null
-          : User.fromJson(Map<String, dynamic>.from(json['to']) ),
+          : User.fromJson(json['to'] as Map<String, dynamic>),
       json['isSeen'] as bool,
       json['publishedAt'] == null
           ? null
@@ -26,8 +26,8 @@ Chat _$ChatFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$ChatToJson(Chat instance) => <String, dynamic>{
       'type': instance.type,
       'content': instance.content,
-      'from': instance.from.toJson(),
-      'to': instance.to.toJson(),
+      'from': instance.from,
+      'to': instance.to,
       'isSeen': instance.isSeen,
       'publishedAt': instance.publishedAt?.toIso8601String(),
       'groupId': instance.groupId

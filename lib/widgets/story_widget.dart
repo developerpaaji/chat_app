@@ -12,11 +12,11 @@ class StoryWidget extends StatelessWidget {
   final bool current;
   const StoryWidget(
       {Key key,
-        @required this.story,
-        @required this.size,
-        @required this.onTap,
-        this.rounded = true,
-        this.current = false})
+      @required this.story,
+      @required this.size,
+      @required this.onTap,
+      this.rounded = true,
+      this.current = false})
       : super(key: key);
 
   @override
@@ -35,7 +35,7 @@ class StoryWidget extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(4.0),
             child: Image.network(
-              story.images[0],
+              story.data[0].link,
               width: width,
               fit: BoxFit.cover,
             ),
@@ -56,7 +56,9 @@ class StoryWidget extends StatelessWidget {
                     width: width,
                     alignment: Alignment.bottomLeft,
                     child: Text(
-                      !current ? story.user.displayName.split(" ")[0] : "Your Story",
+                      !current
+                          ? story.user.displayName.split(" ")[0]
+                          : "Your Story",
                       maxLines: 2,
                       style: TextStyle(color: Colors.white, fontSize: 12.0),
                     ),
@@ -84,8 +86,8 @@ class StoryWidget extends StatelessWidget {
                     color: !story.isSeen
                         ? Colors.blue
                         : Color(
-                      0xffeeeeee,
-                    ),
+                            0xffeeeeee,
+                          ),
                     width: 3.0)),
             child: Stack(
               alignment: Alignment.center,
@@ -112,18 +114,18 @@ class StoryWidget extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: story.user.isActive
                       ? Container(
-                    width: 16.0,
-                    height: 16.0,
-                    alignment: Alignment.center,
-                    child: Container(
-                      width: 10.0,
-                      height: 10.0,
-                      decoration: BoxDecoration(
-                          color: Colors.yellow, shape: BoxShape.circle),
-                    ),
-                    decoration: BoxDecoration(
-                        color: Colors.white, shape: BoxShape.circle),
-                  )
+                          width: 16.0,
+                          height: 16.0,
+                          alignment: Alignment.center,
+                          child: Container(
+                            width: 10.0,
+                            height: 10.0,
+                            decoration: BoxDecoration(
+                                color: Colors.yellow, shape: BoxShape.circle),
+                          ),
+                          decoration: BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                        )
                       : null,
                 )
               ],

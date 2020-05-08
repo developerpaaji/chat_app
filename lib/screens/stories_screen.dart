@@ -1,8 +1,5 @@
-import 'package:chat_app/controllers/stories_controller.dart';
 import 'package:chat_app/models/story.dart';
 import 'package:chat_app/screens/story_screen.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,35 +22,45 @@ class _StoriesScreenState extends State<StoriesScreen> {
     );
     SystemChrome.setEnabledSystemUIOverlays([]);
   }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: (){
+      onWillPop: () async {
         Navigator.of(context).popUntil(ModalRoute.withName('/main'));
+        return widget.stories == null;
       },
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: PageView.builder(
-          controller: controller,
-          itemBuilder: (context, index) => StoryScreen(
-            onCompleted: () {
-              if(index==widget.stories.length-1){
-                Navigator.of(context).popUntil(ModalRoute.withName('/main'));
-              }
-              print("Next Page");
-              controller.animateToPage(index+1, duration: Duration(seconds: 1), curve: Curves.easeInCubic);
-            },
-            story: widget.stories[index],
-          ),
-          itemCount: widget.stories.length,
-        ),
+        body: widget.stories == null
+            ? Container(
+                child: Text("Stories does not exist"),
+              )
+            : PageView.builder(
+                controller: controller,
+                itemBuilder: (context, index) => StoryScreen(
+                  onCompleted: () {
+                    if (index == widget.stories.length - 1) {
+                      Navigator.of(context)
+                          .popUntil(ModalRoute.withName('/main'));
+                    }
+                    print("Next Page");
+                    controller.animateToPage(index + 1,
+                        duration: Duration(seconds: 1),
+                        curve: Curves.easeInCubic);
+                  },
+                  story: widget.stories[index],
+                ),
+                itemCount: widget.stories?.length ?? 0,
+              ),
       ),
     );
   }
 
   @override
   void dispose() {
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top,SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.dispose();
   }
 }

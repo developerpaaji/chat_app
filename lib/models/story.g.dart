@@ -11,18 +11,28 @@ Story _$StoryFromJson(Map<String, dynamic> json) {
       json['id'] as String,
       json['user'] == null
           ? null
-          : User.fromJson(Map<String, dynamic>.from(json['user']) ),
+          : User.fromJson(json['user'] as Map<String, dynamic>),
       json['isSeen'] as bool,
-      (json['images'] as List)?.map((e) => e as String)?.toList(),
+      (json['data'] as List)
+          ?.map((e) =>
+              e == null ? null : DataType.fromJson(e as Map<String, dynamic>))
+          ?.toList(),
       json['publishedAt'] == null
           ? null
           : DateTime.parse(json['publishedAt'] as String));
 }
 
 Map<String, dynamic> _$StoryToJson(Story instance) => <String, dynamic>{
-      'user': instance.user.toJson(),
+      'user': instance.user,
       'id': instance.id,
       'isSeen': instance.isSeen,
-      'images': instance.images,
+      'data': instance.data,
       'publishedAt': instance.publishedAt?.toIso8601String()
     };
+
+DataType _$DataTypeFromJson(Map<String, dynamic> json) {
+  return DataType(json['link'] as String, json['type'] as String);
+}
+
+Map<String, dynamic> _$DataTypeToJson(DataType instance) =>
+    <String, dynamic>{'link': instance.link, 'type': instance.type};

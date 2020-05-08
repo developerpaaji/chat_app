@@ -2,11 +2,9 @@ import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:chat_app/screens/story_create_screen.dart';
-import 'package:chat_app/widgets/ease_in_widget.dart';
 import 'package:chat_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:chat_app/models/camera_file.dart';
 import 'package:chat_app/widgets/thumbnail_widget.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:chat_app/widgets/camera_button.dart';
@@ -35,7 +33,7 @@ class _CameraScreenState extends State<CameraScreen>
     SystemChrome.setEnabledSystemUIOverlays([]);
     WidgetsBinding.instance.addObserver(this);
     getCameras();
-    tabController=TabController(length: 2, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
     getPermissions();
   }
 
@@ -53,7 +51,8 @@ class _CameraScreenState extends State<CameraScreen>
 
   @override
   void dispose() {
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top,SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     WidgetsBinding.instance.removeObserver(this);
     controller.dispose();
     super.dispose();
@@ -134,7 +133,12 @@ class _CameraScreenState extends State<CameraScreen>
     print("Time taken in ${after - seconds}seconds");
     print(filePath);
     controller.dispose();
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>StoryCreateScreen(imagePath: filePath,))).then((val){
+    Navigator.of(context)
+        .push(MaterialPageRoute(
+            builder: (context) => StoryCreateScreen(
+                  imagePath: filePath,
+                )))
+        .then((val) {
       getCameras();
     });
     if (!video)
@@ -179,7 +183,7 @@ class _CameraScreenState extends State<CameraScreen>
                 ],
               )
             : Stack(
-                children: <Widget>[_cameraPreviewWidget(),getOptionsWidget()],
+                children: <Widget>[_cameraPreviewWidget(), getOptionsWidget()],
               ),
       ),
     );
@@ -266,7 +270,9 @@ class _CameraScreenState extends State<CameraScreen>
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        CameraButton(takePicture: takePicture,),
+        CameraButton(
+          takePicture: takePicture,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
@@ -292,8 +298,8 @@ class _CameraScreenState extends State<CameraScreen>
                     indicatorWeight: 3.0,
                     indicatorSize: TabBarIndicatorSize.tab,
                     controller: tabController,
-                    onTap: (index){
-                      if(index==1){
+                    onTap: (index) {
+                      if (index == 1) {
                         showInSnackBar("Sorry video not supported yet.");
                       }
                     },
@@ -356,5 +362,4 @@ class _CameraScreenState extends State<CameraScreen>
   void showInSnackBar(String message) {
     _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(message)));
   }
-
 }
