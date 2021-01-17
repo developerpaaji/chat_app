@@ -22,5 +22,3 @@ I am Bhavneet Singh a freelancer who is always excited to work on new projects. 
 5) Complicated Animations - https://www.youtube.com/channel/UCtWyVkPpb8An90SNDTNF0Pg
 6) Height and Width of Child - https://medium.com/@diegoveloper/flutter-widget-size-and-position-b0a9ffed9407
 
-## Acknowledgement
-Hey there I would like to thank stackoverflow community for flutter and whtsapp group of Flutter.
